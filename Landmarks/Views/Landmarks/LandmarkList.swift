@@ -23,8 +23,12 @@ struct LandmarkList: View {
     }
 
     var title: String {
-        let title = filter == .all ? "Landmarks" : filter.rawValue
-        return showFavoritesOnly ? "Favorite \(title)" : title
+        let title =
+            filter == .all
+            ? String(localized: "Landmarks") : filter.localizedString()
+
+        return showFavoritesOnly
+            ? String(localized: "Favorite \(title)") : title
     }
 
     var filteredLandmarks: [Landmark] {
@@ -42,6 +46,10 @@ struct LandmarkList: View {
         case mountains = "Mountains"
 
         var id: FilterCategory { self }
+
+        func localizedString() -> String {
+            return NSLocalizedString(rawValue, comment: "")
+        }
     }
 
     var body: some View {
@@ -69,7 +77,7 @@ struct LandmarkList: View {
                     Menu {
                         Picker("Category", selection: $filter) {
                             ForEach(FilterCategory.allCases) { category in
-                                Text(category.rawValue).tag(category)
+                                Text(category.localizedString()).tag(category)
                             }
                         }
                         // .pickerStyle(.inline)

@@ -17,7 +17,7 @@ struct ProfileSummary: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(profile.username).bold().font(.title)
                 Text(
-                    "Notifications: \(profile.prefersNotifications ? "On": "Off" )"
+                    "Notifications: \(String(localized: profile.prefersNotifications ? "On" : "Off"))"
                 )
                 Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
                 Text("Goal Date: ") + Text(profile.goalDate, style: .date)

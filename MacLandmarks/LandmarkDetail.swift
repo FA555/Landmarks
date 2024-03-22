@@ -27,7 +27,7 @@ struct LandmarkDetail: View {
                 MapView(coordinate: landmark.locationCoordinate)
                     .frame(height: 300)
 
-                Button("Open in Maps") {
+                Button(String(localized: "Open in Maps")) {
                     let destination = MKMapItem(
                         placemark: MKPlacemark(
                             coordinate: landmark.locationCoordinate
@@ -41,9 +41,9 @@ struct LandmarkDetail: View {
 
             VStack(alignment: .leading, spacing: 20) {
                 HStack(spacing: 24) {
-                    //                    CircleImage(image: landmark.image)
-                    //                        .offset(y: -130)
-                    //                        .padding(.bottom, -130)
+                    // CircleImage(image: landmark.image)
+                    //     .offset(y: -130)
+                    //     .padding(.bottom, -130)
                     CircleImage(image: landmark.image.resizable())
                         .frame(width: 160, height: 160)
 

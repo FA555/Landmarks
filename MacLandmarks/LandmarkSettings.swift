@@ -15,7 +15,7 @@ struct LandmarkSettings: View {
         Form {
             Picker("Map Zoom:", selection: $zoom) {
                 ForEach(MapView.Zoom.allCases) { level in
-                    Text(level.rawValue)
+                    Text(level.localizedString())
                 }
             }
             .pickerStyle(.inline)

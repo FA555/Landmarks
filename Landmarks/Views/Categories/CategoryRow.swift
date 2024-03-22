@@ -13,7 +13,7 @@ struct CategoryRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(categoryName)
+            Text(NSLocalizedString(categoryName, comment: ""))
                 .font(.headline)
                 .padding(.leading, 15)
             // .padding(.top, 15)

@@ -19,14 +19,17 @@ struct NotificationView: View {
                     .scaledToFit()
             }
 
-            Text(title ?? "Unknown Landmark")
+            Text(title ?? String(localized: "Unknown Landmark"))
                 .font(.headline)
 
             Divider()
 
             Text(
                 message
-                    ?? "You are within 5 miles of one of your favorite landmarks."
+                    ?? String(
+                        localized:
+                            "You are within 5 miles of one of your favorite landmarks."
+                    )
             )
             .font(.caption)
         }

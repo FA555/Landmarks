@@ -43,6 +43,10 @@ struct MapView: View {
         var id: Zoom {
             return self
         }
+        
+        func localizedString() -> String {
+            return NSLocalizedString(rawValue, comment: "")
+        }
     }
 
     var body: some View {

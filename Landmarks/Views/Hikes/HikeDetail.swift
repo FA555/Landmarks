@@ -11,11 +11,13 @@ struct HikeDetail: View {
     let hike: Hike
     @State var dataToShow = \Hike.Observation.elevation
 
-    var buttons = [
-        ("Elevation", \Hike.Observation.elevation),
-        ("Heart Rate", \Hike.Observation.heartRate),
-        ("Pace", \Hike.Observation.pace),
-    ]
+    let buttons = {
+        [
+            ("Elevation", \Hike.Observation.elevation),
+            ("Heart Rate", \Hike.Observation.heartRate),
+            ("Pace", \Hike.Observation.pace),
+        ].map { (String(localized: $0.0), $0.1) }
+    }()
 
     var body: some View {
         VStack {
@@ -28,7 +30,7 @@ struct HikeDetail: View {
                         dataToShow = value.1
                     } label: {
                         Text(value.0)
-                            .font(.system(size: 15))
+                            .font(.system(size: 16))
                             .foregroundStyle(
                                 value.1 == dataToShow ? .gray : .accentColor
                             )

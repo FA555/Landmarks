@@ -46,6 +46,7 @@ struct LandmarkDetail: View {
 
                 MapView(coordinate: landmark.locationCoordinate)
                     .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .padding(16)
         }
